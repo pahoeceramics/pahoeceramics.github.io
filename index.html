@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pahoe | Cerámica Volcánica de Galápagos</title>
+  
+  <!-- Elegant Gothic & Minimalist Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- Inline Styles for Page Routing & Transitions -->
+  <style>
+    /* Page Routing Logic */
+    .page { display: none; opacity: 0; transition: opacity 0.4s ease; }
+    .page.active { display: block; opacity: 1; }
+    
+    /* Nav Active State */
+    .nav-links a.active { color: var(--accent-rust, #A64B2A); }
+    
+    /* Hero Background using roca2 */
+    .hero-bg {
+      background: linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.7)), url('./images/textures/roca2.jpg') center/cover no-repeat;
+    }
+    
+    /* About & Contact Image Placeholders */
+    .img-roca1 { background-image: url('./images/textures/roca1.jpg'); }
+    .img-roca3 { background-image: url('./images/textures/roca3.jpg'); }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Dramatic Intro Overlay -->
+  <div id="intro-overlay">
+    <div class="intro-content">
+      <h1 class="intro-logo">Pahoe</h1>
+      <p class="intro-sub">Galápagos</p>
+    </div>
+  </div>
+
+  <!-- 2. Navigation Bar -->
+  <nav>
+    <a href="#" onclick="navigateTo('home')" class="nav-logo-container">
+      <img src="./images/mainlogo1.png" alt="Pahoe Logo" class="nav-logo-img">
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#" onclick="navigateTo('home')" class="active">Inicio</a></li>
+      <li><a href="#" onclick="navigateTo('collections')">Colecciones</a></li>
+      <li><a href="#" onclick="navigateTo('about')">El Origen</a></li>
+      <li><a href="#" onclick="navigateTo('contact')">Contacto</a></li>
+    </ul>
+    <button class="mobile-menu-btn">☰</button>
+  </nav>
+
+  <main>
+    <!-- ================= PAGE: HOME ================= -->
+    <section id="page-home" class="page active">
+      <div class="hero hero-bg">
+        <div class="hero-content">
+          <h1>Forma & Origen</h1>
+          <p>Piezas únicas forjadas por la tierra volcánica y el ritmo del océano. Cerámica utilitaria con alma de Galápagos.</p>
+          <a href="#" onclick="navigateTo('collections')" class="btn btn-primary">Explorar Colecciones</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PAGE: COLECCIONES ================= -->
+    <section id="page-collections" class="page">
+      <div class="section">
+        <div class="section-header">
+          <h2>Colecciones</h2>
+          <div class="divider"></div>
+          <p>Grupos de piezas únicas forjadas por la tierra volcánica. Haz clic en una colección para ver sus obras.</p>
+        </div>
+        <!-- This grid is populated by main.js -->
+        <div id="collections-grid" class="collections-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= PAGE: COLLECTION DETAIL ================= -->
+    <section id="page-collection-detail" class="page">
+      <div class="section">
+        <a href="#" onclick="navigateTo('collections'); return false;" class="back-link">← Volver a Colecciones</a>
+        <div id="collection-detail-header" class="section-header"></div>
+        <!-- This grid is populated by main.js -->
+        <div id="collection-items-grid" class="product-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= PAGE: ABOUT ================= -->
+    <section id="page-about" class="page">
+      <div class="section">
+        <div class="about-hero">
+          <div class="logo-card">
+            <img src="./images/mainlogo.png" alt="Pahoe Ceramics Logo" class="section-logo">
+          </div>
+          <h2>El Origen</h2>
+          <div class="divider"></div>
+        </div>
+
+        <div class="about-container">
+          <div class="about-text">
+            <p>Nacido de la roca volcánica y el silencio del archipiélago, nuestro taller es un espacio de creación lenta. Cada pieza es torneada, esmaltada y cocida a mano, celebrando las imperfecciones que hacen que la cerámica sea verdaderamente única.</p>
+            <p>Creemos en la belleza de lo funcional. Un plato no es solo un objeto, es el escenario de una conversación. Una taza es el comienzo de una mañana tranquila.</p>
+            <p>Nuestra paleta de colores no es elegida, es encontrada. Los negros profundos de la lava, los óxidos naranjas de la erosión, y los grises suaves de la ceniza volcánica.</p>
+          </div>
+          <div class="about-images">
+            <div class="img-placeholder img-roca1"></div>
+            <div class="img-placeholder img-roca3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PAGE: CONTACT ================= -->
+    <section id="page-contact" class="page">
+      <div class="section">
+        <div class="contact-container">
+          <div class="contact-hero">
+            <div class="logo-card">
+              <img src="./images/mainlogo.png" alt="Pahoe Ceramics Logo" class="section-logo">
+            </div>
+            <h2>Adquiere una Pieza</h2>
+            <div class="divider"></div>
+            <p>Nuestras piezas son únicas. Para consultar disponibilidad, precios o encargos personalizados, contáctanos directamente.</p>
+          </div>
+          
+          <div class="contact-actions">
+            <a id="contact-email-btn" href="#" class="btn btn-outline">Enviar un Email</a>
+            <a id="contact-whatsapp-btn" href="#" class="btn btn-outline">WhatsApp Directo</a>
+          </div>
+
+          <div class="location-box">
+            <h3>Ubicación</h3>
+            <p>Isla Santa Cruz, Islas Galápagos, Ecuador</p>
+            <p class="note">Atendemos visitas y entregas únicamente con cita previa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 3. Footer -->
+  <footer>
+    <p>&copy; 2026 Pahoe Cerámica. Galápagos, Ecuador. Forjado en la roca.</p>
+  </footer>
+
+  <!-- 4. Product Modal (Required by main.js) -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Cerrar">&times;</button>
+      <div class="modal-body">
+        <div class="modal-image">
+          <img id="modal-img" src="" alt="">
+        </div>
+        <div class="modal-info">
+          <p id="modal-category" class="modal-category"></p>
+          <h2 id="modal-title"></h2>
+          <div class="divider left"></div>
+          <p id="modal-desc" class="modal-desc"></p>
+          <p id="modal-price" class="modal-price"></p>
+          <div class="modal-actions">
+            <a id="modal-email-btn" href="#" class="btn btn-primary">Email</a>
+            <a id="modal-whatsapp-btn" href="#" class="btn btn-outline">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Scripts -->
+  <script src="./js/main.js"></script>
+  
+  <!-- Page Routing Script -->
+  <script>
+    // --- Page Navigation Logic ---
+    function navigateTo(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      
+      // Show the target page
+      const targetPage = document.getElementById('page-' + pageId);
+      if (targetPage) {
+        targetPage.classList.add('active');
+      }
+
+      // Update active state in navigation
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+      });
+      
+      // Find the matching nav link and make it active
+      // For collection-detail, keep the Colecciones link highlighted
+      const activePageId = pageId === 'collection-detail' ? 'collections' : pageId;
+      const clickedLink = Array.from(document.querySelectorAll('.nav-links a')).find(a => a.getAttribute('onclick').includes(activePageId));
+      if (clickedLink) clickedLink.classList.add('active');
+
+      // Close mobile menu on navigation
+      const navLinks = document.getElementById('nav-links');
+      if (navLinks) navLinks.classList.remove('mobile-open');
+
+      // Scroll to top smoothly
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // --- Mobile Menu Toggle ---
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    if (mobileMenuBtn && navLinks) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+      // Close menu when a link is clicked
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('mobile-open');
+        });
+      });
+    }
+
+  </script>
+</body>
+</html>
