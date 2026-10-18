@@ -59,7 +59,7 @@ const collections = [
     id: 'coral',
     name: 'Coral',
     tagline: 'Arrecifes de Galápagos',
-    description: 'Inspirados en corales y arrecifes de Galápagos: un universo natural, único, lleno de texturas y formas orgánicas. Los tonos de su exterior contrastan con el delicado azul, rindiendo homenaje a las mágicas aguas de las islas.',
+    description: 'Inspirados en corales y arrecifes de Galápagos. Un universo natural, único, lleno de texturas y formas orgánicas. Los tonos de su exterior contrastan con el delicado azul, rindiendo homenaje a las mágicas aguas de las islas.',
     coverImage: IMG_THUMB + 'coral-3.webp',
     pieces: [
       piece('coral', 'Vaso', 1, ['coral-6', 'coral-1', 'coral-13', 'coral-11']),  // vaso percebe (4 vistas)
