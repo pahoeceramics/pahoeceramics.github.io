@@ -73,7 +73,7 @@ const collections = [
     id: 'arenas',
     name: 'Arenas',
     tagline: 'Memoria de las costas',
-    description: 'Arenas es una exploración de las texturas, los colores y las formas de la naturaleza: una manera de llevar a la cerámica la memoria de las costas de Galápagos. Su superficie rugosa refleja la belleza natural de las playas.',
+    description: 'Arenas es una exploración de las texturas, los colores y las formas de la naturaleza. Una manera de llevar a la cerámica la memoria de las costas de Galápagos. Su superficie rugosa refleja la belleza natural de las playas.',
     coverImage: IMG_THUMB + 'arena-3.webp',
     pieces: [
       piece('arenas', 'Plato', 1, ['arena-1', 'arena-2', 'arena-13']),              // plato borde grueso dorado (3 vistas)
